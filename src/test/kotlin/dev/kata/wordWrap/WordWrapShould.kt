@@ -26,4 +26,12 @@ class WordWrapShould {
 
         assertThat(WordWrap.wrap(word, columns)).isEqualTo(expected)
     }
+    @Test
+    fun `add the line break by the column width in the word in another position`() {
+        val word: String = "hola"
+        val columns: Int = 3
+        val expected: String = "hol\na"
+
+        assertThat(WordWrap.wrap(word, columns)).isEqualTo(expected)
+    }
 }
