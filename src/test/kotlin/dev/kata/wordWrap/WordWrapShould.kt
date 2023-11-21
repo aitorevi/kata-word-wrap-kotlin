@@ -8,7 +8,7 @@ class WordWrapShould {
     // "hola", 4 -> "hola"
     // "hola", 2 -> "ho\nla"
     // "hola", 3 -> "hol\na"
-    // "hola mundo", 8 -> "hola\nmundo
+    // "hola mundo", 8 -> "hola\nmundo"
 
     @Test
     fun `the same word when the columns are greater than the word length`() {
@@ -31,6 +31,15 @@ class WordWrapShould {
         val word: String = "hola"
         val columns: Int = 3
         val expected: String = "hol\na"
+
+        assertThat(WordWrap.wrap(word, columns)).isEqualTo(expected)
+    }
+    // "hola mundo", 8 -> "hola\nmundo"
+    @Test
+    fun `add the line break in the space if the second word does not fit in the column width`() {
+        val word: String = "hola mundo"
+        val columns: Int = 8
+        val expected: String = "hola\nmundo"
 
         assertThat(WordWrap.wrap(word, columns)).isEqualTo(expected)
     }
