@@ -19,7 +19,7 @@ class WordWrapShould {
         assertThat(WordWrap.wrap(word, columns)).isEqualTo(expected)
     }
     @Test
-    fun `break the word by the column width`() {
+    fun `add the line break by the column width in the word`() {
         val word: String = "hola"
         val columns: Int = 2
         val expected: String = "ho\nla"
