@@ -1,4 +1,4 @@
-package dev.kata.stringcalculator
+package dev.kata.wordWrap
 
 class StringCalculator(
     private val dependency: StringCalculatorDependency,
@@ -10,4 +10,13 @@ class StringCalculator(
 
 class StringCalculatorDependency {
     fun doSomething() {}
+}
+
+class WordWrap {
+    companion object {
+        fun wrap(word: String, columns: Int): String {
+            TODO("Not yet implemented")
+        }
+    }
+
 }
