@@ -5,18 +5,20 @@ class WordWrap {
         fun wrap(word: String, columns: Int): String {
             val wordLongerThanTheColumnWidth = word.length > columns
             if (wordLongerThanTheColumnWidth) {
-                if(word.contains(" ")) {
-                    val wordWithLineBreack = word.replace(" ", "\n")
-                    return wordWithLineBreack
-                }
-                val wordWithLineBreack = addLineBreacks(word, columns)
-                return wordWithLineBreack
+                return addLineBreacks(word, columns)
             }
             return word
         }
 
-        private fun addLineBreacks(word: String, columns: Int) =
-            word.substring(0, columns).plus("\n").plus(word.substring(columns))
+        private fun addLineBreacks(word: String, columns: Int):String {
+            if(word.contains(" ")) {
+                val replaceSpacesByLineBreaks = word.replace(" ", "\n")
+                return replaceSpacesByLineBreaks
+            }
+            val addLineBreackInWord = word.substring(0, columns).plus("\n").plus(word.substring(columns))
+            return addLineBreackInWord
+        }
+
     }
 
 }
