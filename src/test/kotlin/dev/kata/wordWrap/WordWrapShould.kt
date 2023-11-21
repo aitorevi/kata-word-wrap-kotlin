@@ -34,7 +34,6 @@ class WordWrapShould {
 
         assertThat(WordWrap.wrap(word, columns)).isEqualTo(expected)
     }
-    // "hola mundo", 8 -> "hola\nmundo"
     @Test
     fun `add the line break in the space if the second word does not fit in the column width`() {
         val word: String = "hola mundo"

@@ -5,6 +5,10 @@ class WordWrap {
         fun wrap(word: String, columns: Int): String {
             val wordLongerThanTheColumnWidth = word.length > columns
             if (wordLongerThanTheColumnWidth) {
+                if(word.contains(" ")) {
+                    val wordWithLineBreack = word.replace(" ", "\n")
+                    return wordWithLineBreack
+                }
                 val wordWithLineBreack = addLineBreacks(word, columns)
                 return wordWithLineBreack
             }
