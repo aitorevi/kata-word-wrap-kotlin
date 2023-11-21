@@ -5,10 +5,17 @@ import org.junit.jupiter.api.Test
 
 class WordWrapShould {
 
-    // "hola", 4 -> "hola"
-    // "hola", 2 -> "ho\nla"
-    // "hola", 3 -> "hol\na"
-    // "hola mundo", 8 -> "hola\nmundo"
+    // * "hola", 4 -> "hola"
+    // * "hola", 2 -> "ho\nla"
+    // * "hola", 3 -> "hol\na"
+    // * "hola mundo", 8 -> "hola\nmundo"
+    // "hola mundo", 11 -> "hola mundo"
+    // "hola caracola de goma", 4 -> "hola\ncara\ncola\nde\ngoma"
+    // casos límite
+    // "", 2 -> ""
+    // "hola, 0 -> Error
+    // "hola     mundo", 5 -> "hola\nmundo"
+    // "hola     mundo", 4 -> "hola\nmund\no"
 
     @Test
     fun `the same word when the columns are greater than the word length`() {
