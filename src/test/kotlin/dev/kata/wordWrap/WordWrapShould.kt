@@ -9,7 +9,7 @@ class WordWrapShould {
     // * "hola", 2 -> "ho\nla"
     // * "hola", 3 -> "hol\na"
     // * "hola mundo", 8 -> "hola\nmundo"
-    // "hola mundo", 11 -> "hola mundo"
+    // * "hola mundo", 11 -> "hola mundo"
     // "hola caracola de goma", 4 -> "hola\ncara\ncola\nde\ngoma"
     // casos límite
     // "", 2 -> ""
@@ -54,6 +54,14 @@ class WordWrapShould {
         val word: String = "hola mundo"
         val columns: Int = 8
         val expected: String = "hola\nmundo"
+
+        assertThat(WordWrap.wrap(word, columns)).isEqualTo(expected)
+    }
+    @Test
+    fun `add the line break by the column width in the space and words`() {
+        val word: String = "hola caracola de goma"
+        val columns: Int = 4
+        val expected: String = "hola\ncara\ncola\nde\ngoma"
 
         assertThat(WordWrap.wrap(word, columns)).isEqualTo(expected)
     }
