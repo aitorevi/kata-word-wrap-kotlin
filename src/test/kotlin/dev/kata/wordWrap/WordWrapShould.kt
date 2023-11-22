@@ -10,7 +10,7 @@ class WordWrapShould {
     // * "hola", 3 -> "hol\na"
     // * "hola mundo", 8 -> "hola\nmundo"
     // * "hola mundo", 11 -> "hola mundo"
-    // "hola caracola de goma", 4 -> "hola\ncara\ncola\nde\ngoma"
+    // * "hola caracola de goma", 4 -> "hola\ncara\ncola\nde\ngoma"
     // casos límite
     // "", 2 -> ""
     // "hola, 0 -> Error

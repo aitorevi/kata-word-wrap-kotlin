@@ -4,7 +4,7 @@ class WordWrap {
     companion object {
         fun wrap(word: String, columns: Int): String {
             val wordLongerThanTheColumnWidth = word.length > columns
-            if (wordLongerThanTheColumnWidth || word.isNotEmpty()) {
+            if (wordLongerThanTheColumnWidth) {
                 return addLineBreaks(word, columns)
             }
             return word
@@ -14,16 +14,14 @@ class WordWrap {
             var wordWrapped = ""
             var restOfWord = word
 
-            val wordIsNotEmpty = restOfWord.isNotEmpty()
-            while (wordIsNotEmpty) {
+            while (restOfWord.isNotEmpty()) {
                 if (restOfWord.length <= columns) {
                     wordWrapped = wordWrapped.plus(restOfWord)
                     restOfWord = ""
                 } else {
-                    val lastSpaceInColumWidth = restOfWord.lastIndexOf(' ', columns)
-                    var positionWrap = lastSpaceInColumWidth
-
+                    var positionWrap = restOfWord.lastIndexOf(' ', columns)
                     val notSpacesInColumnWidth = positionWrap == -1
+
                     if (notSpacesInColumnWidth) {
                         positionWrap = columns
                     }
