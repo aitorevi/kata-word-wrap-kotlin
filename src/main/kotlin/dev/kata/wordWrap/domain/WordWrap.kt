@@ -1,18 +1,18 @@
-package dev.kata.wordWrap
+package dev.kata.wordWrap.domain
 
 class WordWrap {
     companion object {
-        fun wrap(word: String, columns: Int): String {
-            val wordLongerThanTheColumnWidth = word.length > columns
+        fun execute(text: String, columns: Int): String {
+            val wordLongerThanTheColumnWidth = text.length > columns
             if (wordLongerThanTheColumnWidth) {
-                return addLineBreaks(word, columns)
+                return addLineBreaks(text, columns)
             }
-            return word
+            return text
         }
 
-        private fun addLineBreaks(word: String, columns: Int): String {
+        private fun addLineBreaks(text: String, columns: Int): String {
             var wordWrapped = ""
-            var restOfWord = word
+            var restOfWord = text
 
             while (restOfWord.isNotEmpty()) {
                 if (restOfWord.length <= columns) {
