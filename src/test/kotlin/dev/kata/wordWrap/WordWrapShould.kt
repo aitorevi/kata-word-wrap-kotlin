@@ -26,6 +26,14 @@ class WordWrapShould {
         assertThat(WordWrap.wrap(word, columns)).isEqualTo(expected)
     }
     @Test
+    fun `the same words when the columns are greater than the word length`() {
+        val word: String = "hola mundo bonito"
+        val columns: Int = 20
+        val expected: String = "hola mundo bonito"
+
+        assertThat(WordWrap.wrap(word, columns)).isEqualTo(expected)
+    }
+    @Test
     fun `add the line break by the column width in the word`() {
         val word: String = "hola"
         val columns: Int = 2
